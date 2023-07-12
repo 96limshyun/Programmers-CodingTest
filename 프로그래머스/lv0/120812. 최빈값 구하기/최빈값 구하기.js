@@ -3,7 +3,7 @@ function solution(array) {
     let Cnt = 0;
     let Max = -1 // 최빈값
     let MaxRepeatCnt = 0; // 최빈값이 몇번 반복 되는지
-    let ReaeatCnt = 0;    // 현재 똑같은 숫자가 몇번 등장했는지
+    let  RepeatCnt = 0;    // 현재 똑같은 숫자가 몇번 등장했는지
     let BeforeNumber = -1; // 지금 보고있는 숫자 이전 숫자
     let isDupMax = false;
     while(Cnt < array.length){
