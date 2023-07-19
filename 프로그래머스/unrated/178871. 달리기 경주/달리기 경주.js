@@ -1,19 +1,22 @@
 function solution(players, callings) {
     const playerMap = {};
 
-    players.forEach((name, idx) => {playerMap[name] = idx});
+    for (let i = 0; i < players.length; i++) {
+        playerMap[players[i]] = i;
+    }
+    for (let i = 0; i < callings.length; i++) {
+        const index = playerMap[callings[i]];
+        const temp = players[index-1];
 
-    callings.forEach((called_player, idx) => {
-        let called_idx = playerMap[called_player];
-        let temp = players[called_idx - 1];
+        players[index] = temp;
+        players[index-1] = callings[i];
 
-        players[called_idx - 1] = players[called_idx];
-        players[called_idx] = temp;
+        playerMap[callings[i]] = index - 1;
+        playerMap[temp] = index;
 
-        playerMap[called_player]--;
-        playerMap[temp]++;
+        console.log(players);
         
-    });
+    }
 
     return players;
 }
